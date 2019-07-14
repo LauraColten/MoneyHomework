@@ -15,7 +15,7 @@ namespace WebApplication1.Controllers
         [HttpGet("{number}")]
         public ActionResult<Dictionary<string, int>> Get(float number)
         {
-            float amount = number * 100;
+            float amount = number;
             Dictionary<string, int > change = new Dictionary<string, int>()
             {
                 { "100s" , 0 },
@@ -32,44 +32,44 @@ namespace WebApplication1.Controllers
             };
             while(amount > 0)
             {
-                if (amount >= 10000) {
-                    amount -= 10000;
+                if (amount >= 100.00) {
+                    amount -= 100.00F;
                     change["100s"]++;
-                }else if (amount >= 5000)
+                }else if (amount >= 50.00)
                 {
-                    amount -= 5000;
+                    amount -= 50.00F;
                     change["50s"]++;
-                }else if (amount >= 2000)
+                }else if (amount >= 20.00)
                 {
-                    amount -= 2000;
+                    amount -= 20.00F;
                     change["20s"]++;
-                }else if (amount >=1000)
+                }else if (amount >=10.00)
                 {
-                    amount -= 1000;
+                    amount -= 10.00F;
                     change["10s"]++;
-                }else if (amount >= 500)
+                }else if (amount >= 5.00)
                 {
-                    amount -= 500;
+                    amount -= 5.00F;
                     change["5s"]++;
-                }else if (amount >= 100)
+                }else if (amount >= 1.00)
                 {
-                    amount -= 100;
+                    amount -= 1.00F;
                     change["1s"]++;
-                }else if (amount >= 25 )
+                }else if (amount >= 0.25 )
                 {
-                    amount -= 25;
+                    amount -= 0.25F;
                     change["Quarters"]++;
-                }else if (amount >= 10)
+                }else if (amount >= 0.10)
                 {
-                    amount -= 10;
+                    amount -= 0.10F;
                     change["Dimes"]++;
-                }else if (amount >= 5)
+                }else if (amount >= 0.05)
                 {
-                    amount -= 5;
+                    amount -= 0.05F;
                     change["Nickels"]++;
                 }else
                 {
-                    amount -= 1;
+                    amount -= 0.01F;
                     change["Pennies"]++;
                 }
             } return change;
